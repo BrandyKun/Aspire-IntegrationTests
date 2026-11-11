@@ -1,0 +1,29 @@
+<!--
+  Tests.Shared = helpers used by BOTH the integration tests and the E2E tests:
+    * AppHostFixture     starts the whole system ONCE per test run (slow → do it once)
+    * RabbitTestClient   talk to RabbitMQ directly from a test
+    * PostgresTestClient query Postgres directly from a test
+    * Wait               "keep checking until it's true or we time out"
+  It is NOT a test project itself (no tests inside), just a library.
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Referencing the AppHost gives us Projects.AspireNotifications_AppHost for the testing builder. -->
+    <ProjectReference Include="..\..\src\AspireNotifications.AppHost\AspireNotifications.AppHost.csproj" />
+    <ProjectReference Include="..\..\src\AspireNotifications.Contracts\AspireNotifications.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.Testing" />
+    <PackageReference Include="Microsoft.Extensions.Http.Resilience" />
+    <PackageReference Include="RabbitMQ.Client" />
+    <PackageReference Include="Npgsql" />
+    <PackageReference Include="xunit" />
+  </ItemGroup>
+
+</Project>

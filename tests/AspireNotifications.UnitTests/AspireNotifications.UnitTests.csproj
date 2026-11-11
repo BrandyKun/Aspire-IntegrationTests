@@ -1,0 +1,28 @@
+<!--
+  UNIT TESTS: pure logic, no Docker, no network, run in milliseconds.
+      dotnet test tests/AspireNotifications.UnitTests
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\AspireNotifications.CustomerInterface\AspireNotifications.CustomerInterface.csproj" />
+    <ProjectReference Include="..\..\src\AspireNotifications.FakeExternalApi\AspireNotifications.FakeExternalApi.csproj" />
+    <ProjectReference Include="..\..\src\AspireNotifications.Contracts\AspireNotifications.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+</Project>

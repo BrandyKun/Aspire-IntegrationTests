@@ -1,0 +1,30 @@
+<!--
+  INTEGRATION TESTS: one service at a time, with its REAL dependencies (RabbitMQ / Postgres).
+  Needs Docker Desktop running. First run is slow (image pulls).
+      dotnet test tests/AspireNotifications.IntegrationTests
+  ⚠️ Don't have the AppHost running in another terminal at the same time.
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AspireNotifications.Tests.Shared\AspireNotifications.Tests.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+    <Using Include="AspireNotifications.Tests.Shared" />
+    <Using Include="AspireNotifications.Contracts" />
+  </ItemGroup>
+
+</Project>

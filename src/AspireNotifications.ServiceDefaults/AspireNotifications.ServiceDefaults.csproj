@@ -1,0 +1,27 @@
+<!--
+  ServiceDefaults = the boring-but-important plumbing EVERY service needs:
+    * OpenTelemetry (logs, traces, metrics → Aspire dashboard)
+    * health endpoints  (/health and /alive → Aspire knows when a service is ready)
+    * service discovery (so "https+http://externalapi" resolves to the real address)
+    * HTTP resilience   (retries / timeouts on outgoing HttpClient calls)
+  Each service calls builder.AddServiceDefaults() once. That's it.
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsAspireSharedProject>true</IsAspireSharedProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+
+    <PackageReference Include="Microsoft.Extensions.Http.Resilience" />
+    <PackageReference Include="Microsoft.Extensions.ServiceDiscovery" />
+    <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol"/>
+    <PackageReference Include="OpenTelemetry.Extensions.Hosting" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.Http" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.Runtime" />
+  </ItemGroup>
+
+</Project>

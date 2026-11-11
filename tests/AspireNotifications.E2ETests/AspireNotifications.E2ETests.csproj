@@ -1,0 +1,29 @@
+<!--
+  END-TO-END TESTS: the whole journey, seen from the OUTSIDE.
+  Touch the first box (external API), check the last box (customer-interface's HTTP API).
+      dotnet test tests/AspireNotifications.E2ETests
+  Few tests, only the business journeys that matter. Needs Docker Desktop running.
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AspireNotifications.Tests.Shared\AspireNotifications.Tests.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+    <Using Include="AspireNotifications.Tests.Shared" />
+  </ItemGroup>
+
+</Project>

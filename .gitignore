@@ -1,0 +1,9 @@
+bin/
+obj/
+.vs/
+.idea/
+*.user
+*.swp
+.DS_Store
+TestResults/
+build.log

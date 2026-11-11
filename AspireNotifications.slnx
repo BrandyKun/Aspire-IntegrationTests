@@ -1,0 +1,28 @@
+<!--
+  Solution file (new XML ".slnx" format, supported by the .NET 10 SDK, Rider and VS 2022 17.14+).
+  If your IDE does not open it, create a classic .sln with:
+      dotnet new sln -n AspireNotifications
+      dotnet sln add $(find src tests -name '*.csproj')
+-->
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/AspireNotifications.AppHost/AspireNotifications.AppHost.csproj" />
+    <Project Path="src/AspireNotifications.ServiceDefaults/AspireNotifications.ServiceDefaults.csproj" />
+    <Project Path="src/AspireNotifications.Contracts/AspireNotifications.Contracts.csproj" />
+    <Project Path="src/AspireNotifications.FakeExternalApi/AspireNotifications.FakeExternalApi.csproj" />
+    <Project Path="src/AspireNotifications.NotificationReader/AspireNotifications.NotificationReader.csproj" />
+    <Project Path="src/AspireNotifications.CustomerInterface/AspireNotifications.CustomerInterface.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/AspireNotifications.Tests.Shared/AspireNotifications.Tests.Shared.csproj" />
+    <Project Path="tests/AspireNotifications.UnitTests/AspireNotifications.UnitTests.csproj" />
+    <Project Path="tests/AspireNotifications.IntegrationTests/AspireNotifications.IntegrationTests.csproj" />
+    <Project Path="tests/AspireNotifications.E2ETests/AspireNotifications.E2ETests.csproj" />
+  </Folder>
+  <Folder Name="/solution items/">
+    <File Path="README.md" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="global.json" />
+  </Folder>
+</Solution>

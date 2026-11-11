@@ -1,0 +1,14 @@
+<!--
+  Contracts = the things BOTH services must agree on:
+    * the shape of the message that travels through RabbitMQ (RawNotification)
+    * the names of the exchange / queues (Messaging)
+    * the code that creates them (RabbitTopology)
+  It is a plain class library, no web stuff in here.
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="RabbitMQ.Client" />
+  </ItemGroup>
+
+</Project>

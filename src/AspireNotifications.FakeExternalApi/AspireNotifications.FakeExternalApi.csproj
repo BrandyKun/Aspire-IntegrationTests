@@ -1,0 +1,12 @@
+<!--
+  FakeExternalApi = stands in for the REAL third-party system that produces notifications.
+  It exists only so you can run everything on your laptop with no internet.
+  In production the NotificationReader points at the real URL instead (see AppHost).
+-->
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\AspireNotifications.ServiceDefaults\AspireNotifications.ServiceDefaults.csproj" />
+  </ItemGroup>
+
+</Project>

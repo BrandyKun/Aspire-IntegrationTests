@@ -1,0 +1,16 @@
+<!--
+  Directory.Build.props
+  =====================
+  MSBuild picks this file up AUTOMATICALLY for every project underneath this folder.
+  Anything we put here applies to all projects, so we don't repeat it in every .csproj.
+-->
+<Project>
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <!-- Treat warnings as errors only in CI, locally we prefer to see the build succeed. -->
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+</Project>

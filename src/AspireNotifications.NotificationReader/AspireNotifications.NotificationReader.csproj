@@ -1,0 +1,20 @@
+<!--
+  NotificationReader = "the fetcher".
+    1. Polls the external API every few seconds (HttpClient).
+    2. Publishes every new notification to RabbitMQ.
+  It is a Web project only so it can expose /health and /stats; the real work is the BackgroundService.
+-->
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\AspireNotifications.ServiceDefaults\AspireNotifications.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\AspireNotifications.Contracts\AspireNotifications.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Aspire client integration: registers a RabbitMQ IConnection + health check + telemetry
+         from the connection string the AppHost injects ("ConnectionStrings__rabbitmq"). -->
+    <PackageReference Include="Aspire.RabbitMQ.Client" />
+  </ItemGroup>
+
+</Project>

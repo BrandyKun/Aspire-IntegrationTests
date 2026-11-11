@@ -1,0 +1,30 @@
+<!--
+  AppHost = "the recipe". It does NOT contain business code.
+  It says WHAT to run (Postgres, RabbitMQ, our services) and HOW they connect,
+  then starts everything and opens the dashboard.
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- This extra SDK turns a console app into an Aspire AppHost (dashboard, orchestration, Projects.* classes). -->
+  <Sdk Name="Aspire.AppHost.Sdk" Version="13.0.1" />
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>aspire-notifications-apphost-7f3b1c2e</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" />
+    <PackageReference Include="Aspire.Hosting.PostgreSQL" />
+    <PackageReference Include="Aspire.Hosting.RabbitMQ" />
+  </ItemGroup>
+
+  <!-- Referencing a project here is what generates the Projects.AspireNotifications_XXX classes used in Program.cs. -->
+  <ItemGroup>
+    <ProjectReference Include="..\AspireNotifications.FakeExternalApi\AspireNotifications.FakeExternalApi.csproj" />
+    <ProjectReference Include="..\AspireNotifications.NotificationReader\AspireNotifications.NotificationReader.csproj" />
+    <ProjectReference Include="..\AspireNotifications.CustomerInterface\AspireNotifications.CustomerInterface.csproj" />
+  </ItemGroup>
+
+</Project>
